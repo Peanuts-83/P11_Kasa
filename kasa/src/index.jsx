@@ -1,21 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "./styles/index.scss";
 import Header from "./components/Header";
-import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Error404 from "./pages/Error";
 // import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="App">
-      <Header />
+          <Header />
       <Router>
-        <Home />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/apropos" element={<About />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
       </Router>
-      <Footer />
+          <Footer />
     </div>
   </React.StrictMode>,
   document.getElementById("root")
