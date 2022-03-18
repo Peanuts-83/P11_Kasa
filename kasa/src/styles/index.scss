@@ -3,8 +3,6 @@
 // Font variables
 $Montserrat: 'Montserrat', sans-serif;
 
-// Colors variables
-$red: #FF6060;
 
 *,
 *::before,
@@ -12,19 +10,19 @@ $red: #FF6060;
   box-sizing: border-box;
 }
 
-a {
-  color: $red;
-  text-decoration: none;
-}
-
 body {
   margin: 0;
   font-family: $Montserrat, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    font-weight: 400;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $red;
+  text-decoration: none;
 }
 
 .App {

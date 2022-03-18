@@ -12,17 +12,17 @@ import Error404 from "./pages/Error";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="App">
-          <Header />
-      <Router>
+    <Router>
+      <div className="App">
+        <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/apropos" element={<About />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
-      </Router>
-          <Footer />
-    </div>
+      </div>
+      <Footer />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
