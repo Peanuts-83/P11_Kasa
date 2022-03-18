@@ -2,6 +2,7 @@ import paysage from "../../assets/fond_paysage.png";
 import "../../styles/modules/photo.scss";
 
 function Photo({ hpImg, loc }) {
+    // const interieurs = 
     const imageURL = hpImg ? paysage : loc.url
   return (
     <div className="Photo"
