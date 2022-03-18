@@ -1,20 +1,24 @@
 import paysage from "../../assets/fond_paysage.png";
 import "../../styles/modules/photo.scss";
 
-function Photo(props) {
-  const hpImg = props.hpImg;
-
+function Photo({ hpImg, loc }) {
+    const imageURL = hpImg ? paysage : loc.url
   return (
-    <div className="Photo">
+    <div className="Photo"
+        style={{position: !hpImg && 'absolute'}}>
       <div
         className="photo_img"
         style={{
-          backgroundImage: `url(${paysage})`,
-          filter: hpImg ? `brightness(80%)` : `brightness(100%)`,
+          backgroundImage: `url(${imageURL})`,
+          filter: hpImg && `brightness(70%)`,
+          height: !hpImg && `100%`,
+          boxShadow: !hpImg && `inset 0 -50px 40px rgba(0,0,0,0.7)`,
         }}
-      >
-      </div>
-        <div className="photo_title">{hpImg ? `Chez vous, partout et ailleurs` : ``}</div>
+      ></div>
+      {hpImg && (
+        <div className="photo_title">Chez vous, partout et ailleurs</div>
+      )}
+      {loc && <div className="photo_sub_title">{loc.name}</div>}
     </div>
   );
 }

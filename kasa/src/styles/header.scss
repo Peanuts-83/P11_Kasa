@@ -13,11 +13,8 @@
     }
     nav {
         margin-left: auto;
-        a {
+        .Link {
             margin-left: 60px;
-            &:hover {
-                text-decoration: underline;
-            }
         }
     }
 }
@@ -30,7 +27,7 @@
         img {
             width: 150px;
         }
-        nav > a {
+        nav > .Link {
             margin-left: 40px;
         }
     }
@@ -43,7 +40,7 @@
         img {
             width: 100px;
         }
-        nav > a {
+        nav > .Link {
             margin-left: 20px;
         }
     }

@@ -1,4 +1,4 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
 *,
 *::before,
@@ -8,17 +8,19 @@
 
 body {
   margin: 0;
-  font-family: $Montserrat, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: $Montserrat, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+.Link {
   color: $red;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .App {
@@ -32,16 +34,14 @@ a {
   max-width: 1520px;
 }
 
-
 @media (max-width: 964px) {
   .App {
     padding: 0 40px;
   }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .App {
-    padding: 0 20px;
-
+    padding: 0 5%;
   }
 }
