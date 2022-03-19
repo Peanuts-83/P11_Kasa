@@ -36,6 +36,7 @@ function Logement() {
 		// eslint-disable-next-line
 		id,
 		title,
+		// eslint-disable-next-line
 		cover,
 		// eslint-disable-next-line
 		pictures,

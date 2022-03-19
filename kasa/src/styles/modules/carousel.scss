@@ -1,9 +1,62 @@
 @import "../../styles/variables";
 
 .Carousel {
-    .photo {
-        border-radius: 15px;
-        width: 100%;
-        height: 450px;
+	.photo {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-radius: 15px;
+		width: 100%;
+		height: 450px;
+        background-position: 50%;
+        background-size: cover;
+	}
+	.chevron {
+		padding: 20px;
+		font-size: 80px;
+		color: white;
+        filter: drop-shadow(1px 1px 3px rgba(0,0,0,.3));
+        &:active {
+            transform: scale(120%);
+            color: $red;
+        }
+	}
+	.chevron_left {
+        padding-right: 50px;
+		&:hover {
+			cursor: pointer;
+			animation: 0.2s swipeLeft;
+		}
+	}
+	.chevron_right {
+        padding-left: 50px;
+		&:hover {
+			cursor: pointer;
+			animation: 0.2s swipeRight;
+		}
+	}
+    .img_loader {
+        width: 0;
     }
+}
+
+@keyframes swipeLeft {
+	from {
+		transform: scale(100%) translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: scale(120%) translateX(-50px);
+		opacity: 0;
+	}
+}
+@keyframes swipeRight {
+	from {
+		transform: scale(100%) translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: scale(120%) translateX(50px);
+		opacity: 0;
+	}
 }
