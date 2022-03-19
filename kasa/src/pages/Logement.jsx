@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { BrowserRouter, useParams } from "react-router-dom";
 import { ContextLogements } from "../utils/context_logements";
 
 import Tags from "../components/modules/Tags";
@@ -8,11 +8,31 @@ import Rates from "../components/modules/Rates";
 import Textual from "../components/modules/Textual";
 
 function Logement() {
-	const { idPage } = useParams();
+	let { idPage } = useParams();
+    idPage = idPage.substring(1)
 	const { getLoc } = useContext(ContextLogements);
-	const [loc] = getLoc(idPage.substring(1));
+	const storedLoc = localStorage.getItem("loc");
+	let loc;
+
+    // loc -> localStorage
+	if (
+		!localStorage.getItem("loc") ||
+		localStorage.getItem("loc") === "undefined"
+	) {
+		[loc] = getLoc(idPage);
+		localStorage.setItem("loc", JSON.stringify(loc));
+	} else {
+		if (JSON.parse(localStorage.getItem("loc")).id === idPage) {
+			loc = JSON.parse(storedLoc);
+		} else {
+			[loc] = getLoc(idPage);
+			localStorage.setItem("loc", JSON.stringify(loc));
+		}
+	}
+
 	const {
-        id,
+		// eslint-disable-next-line
+		id,
 		title,
 		cover,
 		// eslint-disable-next-line

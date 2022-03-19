@@ -1,10 +1,12 @@
+import "../../styles/modules/tags.scss"
+
 function Tags({ tags }) {
 	return (
 		<div className="Tags">
 			{tags.map((tag, i) => (
-				<div className="tag" key={`${tag}-${i}`}>
-                    tag
-                </div>
+				<span className="tag_elt" key={`${tag}-${i}`}>
+                    {tag}
+                </span>
 			))}
 		</div>
 	);

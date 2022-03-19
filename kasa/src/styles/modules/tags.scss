@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+
+.Tags {
+    display: flex;
+    .tag_elt {
+        margin-right: 20px;
+        background-color: $red;
+
+    }
+}

@@ -7,7 +7,7 @@ function Rates({ rateNum }) {
 		<div className="rates">
 			{rates.map((rate, i) => {
 				return (
-					<span><i className="fa-solid fa-user"></i>
+					<span key={`rate-${i}`}><i className="fa-solid fa-user"></i>
 					</span>
 				);
 			})}

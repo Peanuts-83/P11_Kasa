@@ -18,7 +18,7 @@ function Router() {
 						<Header />
 						<Routes>
 							<Route exact path="/" element={<Home />} />
-							<Route path="/logement:id" element={<Logement />} />
+							<Route path="/logement:idPage" element={<Logement />} />
 							<Route path="/apropos" element={<About />} />
 							<Route path="*" element={<Error404 />} />
 						</Routes>
