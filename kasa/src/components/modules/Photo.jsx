@@ -2,17 +2,11 @@ import "../../styles/modules/photo.scss";
 import paysage from "../../assets/fond_paysage.png";
 import paysage2 from "../../assets/fond_paysage2.png";
 
-function getPhoto(i) {
-	const targetImg = require(`../../assets/interieurs/${
-		i - Math.floor(i / 11) * 11
-	}.jpg`);
-	return targetImg;
-}
 
 function Photo({ hpImg, loc, index }) {
 	const paysages = [paysage, paysage2];
 	const choosePaysage = Math.floor(Math.random() * 2);
-	const imageURL = hpImg ? paysages[choosePaysage] : getPhoto(index);
+	const imageURL = hpImg ? paysages[choosePaysage] : loc.cover;
 
 	return (
 		<div

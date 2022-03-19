@@ -1,20 +1,22 @@
 import { useContext } from "react";
-import { BrowserRouter, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ContextLogements } from "../utils/context_logements";
 
 import Tags from "../components/modules/Tags";
 import Owner from "../components/modules/Owner";
 import Rates from "../components/modules/Rates";
 import Textual from "../components/modules/Textual";
+import Carousel from "../components/modules/Carousel";
+import "../styles/logement.scss";
 
 function Logement() {
 	let { idPage } = useParams();
-    idPage = idPage.substring(1)
+	idPage = idPage.substring(1);
 	const { getLoc } = useContext(ContextLogements);
 	const storedLoc = localStorage.getItem("loc");
 	let loc;
 
-    // loc -> localStorage
+	// loc -> localStorage
 	if (
 		!localStorage.getItem("loc") ||
 		localStorage.getItem("loc") === "undefined"
@@ -46,30 +48,28 @@ function Logement() {
 	} = loc;
 
 	return (
-		<div>
+		<div className="Logement">
 			<div className="cover">
-				<img src={cover} alt="cover" />
+				<Carousel loc={loc} />
 			</div>
 			<div className="content">
 				<div className="top">
 					<div className="title">
 						<h1>{title}</h1>
-						<h4>{location}</h4>
+						<h3>{location}</h3>
 						<div className="tags">
 							<Tags tags={tags} />
 						</div>
 					</div>
 					<div className="owner_rates">
-						<div className="owner">
-							<Owner host={host} />
-						</div>
-					</div>
-					<div className="rates">
+						<Owner host={host} />
 						<Rates rateNum={rating} />
 					</div>
 				</div>
-				<Textual type="Description" text={description} />
-				<Textual type="Équipements" text={equipments} />
+				<div className="textuals">
+					<Textual type="Description" text={description} />
+					<Textual type="Équipements" text={equipments} />
+				</div>
 			</div>
 		</div>
 	);

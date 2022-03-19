@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.Textual {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: $greyl;
+    padding-bottom: 40px;
+    .cap {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 15px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        // font-size: 18px;
+        font-weight: 600;
+        border-radius: 10px;
+        color: white;
+        background-color: $red;
+        .chevron_up {
+            font-size: 24px;
+        }
+    }
+    .text {
+        padding: 0 15px;
+        line-height: 1.7em;
+        color: $red;
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                list-style: none;
+
+            }
+        }
+    }
+}

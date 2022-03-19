@@ -1,7 +1,16 @@
+import "../../styles/modules/textual.scss";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	solid,
+	regular,
+	brands,
+} from "@fortawesome/fontawesome-svg-core/import.macro";
+
 function renderSwitch(type) {
 	switch (type) {
 		case "Description":
-			return <div>Descr</div>;
+			return <div>Description</div>;
 		case "Équipements":
 			return <div>Équipements</div>;
 		default:
@@ -12,11 +21,23 @@ function renderSwitch(type) {
 function Textual({ type, text }) {
 	return (
 		<div className="Textual">
-			<div className="cap">
-                {renderSwitch(type)}
-                <i className="fa-solid fa-chevron"></i>
-                </div>
-            <div className="text">{text}</div>
+			<h3 className="cap">
+				{renderSwitch(type)}
+				<FontAwesomeIcon
+					icon={solid("chevron-up")}
+					className="chevron chevron_up"
+				/>
+			</h3>
+			<div className="text">{type === "Description" && text}</div>
+			<div className="text">
+				{type === "Équipements" && (
+					<ul>
+						{text.map((el, i) => (
+							<li key={`equip-${i}`}>{el}</li>
+						))}
+					</ul>
+				)}
+			</div>
 		</div>
 	);
 }

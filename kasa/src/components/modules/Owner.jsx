@@ -1,15 +1,16 @@
+import "../../styles/modules/owner.scss"
+
 function Owner({ host }) {
-	console.log('HOST', host)
 	const { name, picture } = host;
 	const [firstname, ...lastname] = name.split(' ');
 
 	return (
 		<div className="Owner">
-			<div className="name">
+			<h3 className="name">
 				{firstname}
 				<br />
 				{lastname}
-			</div>
+			</h3>
 			<div className="picture">
 				<img src={picture} alt="owner" />
 			</div>

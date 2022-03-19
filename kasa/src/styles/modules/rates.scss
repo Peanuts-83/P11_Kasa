@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.Rates{
+    display: flex;
+    flex: 1;
+    margin-top: auto;
+    align-items: flex-end;
+    .full {
+        font-size: 24px;
+        color: $red;
+    }
+    .empty {
+        font-size: 24px;
+        color: lightgray;
+    }
+}
