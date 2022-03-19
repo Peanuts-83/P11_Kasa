@@ -1,12 +1,14 @@
 import Photo from "../components/modules/Photo";
 import Grid from "../components/modules/Grid";
-import logements from "../app/fetcher"
 
-
+import { useContext, useEffect } from "react";
+import { ContextLogements } from "../utils/context_logements";
+import logements from "../app/fetcher";
 
 function Home() {
-	const locs = logements.get()
-	
+	const { locs, setLocs } = useContext(ContextLogements);
+	useEffect(() => setLocs(logements.get()));
+
 	return (
 		<div>
 			<Photo hpImg={true} />
