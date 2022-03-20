@@ -12,19 +12,20 @@ import { ProviderLogements } from "../utils/context_logements";
 function Router() {
 	return (
 		<React.StrictMode>
-			<BrowserRouter>
+			<BrowserRouter className="container">
 				<ProviderLogements>
 					<div className="App">
 						<Header />
 						<Routes>
 							<Route exact path="/" element={<Home />} />
+							{/* TODO: manage /logement:errorID */}
 							<Route path="/logement:idPage" element={<Logement />} />
 							<Route path="/apropos" element={<About />} />
 							<Route path="*" element={<Error404 />} />
 						</Routes>
 					</div>
 				</ProviderLogements>
-				<Footer />
+				<Footer className="footer" />
 			</BrowserRouter>
 		</React.StrictMode>
 	);
