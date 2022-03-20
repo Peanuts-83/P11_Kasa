@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.6a9d9ebd.css",
-    "main.js": "/static/js/main.a82bbfa1.js",
-    "static/media/fond_paysage.png": "/static/media/fond_paysage.d040f0dabda745fda3f2.png",
-    "static/media/fond_paysage2.png": "/static/media/fond_paysage2.fce6fc3e9ed27433e9b0.png",
-    "static/media/LOGO.svg": "/static/media/LOGO.bb1c78bdbf97911cf6044e13e0c4f670.svg",
-    "index.html": "/index.html",
-    "main.6a9d9ebd.css.map": "/static/css/main.6a9d9ebd.css.map",
-    "main.a82bbfa1.js.map": "/static/js/main.a82bbfa1.js.map"
+    "main.css": "/P11_Kasa/static/css/main.6a9d9ebd.css",
+    "main.js": "/P11_Kasa/static/js/main.e476e951.js",
+    "static/media/fond_paysage.png": "/P11_Kasa/static/media/fond_paysage.d040f0dabda745fda3f2.png",
+    "static/media/fond_paysage2.png": "/P11_Kasa/static/media/fond_paysage2.fce6fc3e9ed27433e9b0.png",
+    "static/media/LOGO.svg": "/P11_Kasa/static/media/LOGO.bb1c78bdbf97911cf6044e13e0c4f670.svg",
+    "index.html": "/P11_Kasa/index.html",
+    "main.6a9d9ebd.css.map": "/P11_Kasa/static/css/main.6a9d9ebd.css.map",
+    "main.e476e951.js.map": "/P11_Kasa/static/js/main.e476e951.js.map"
   },
   "entrypoints": [
     "static/css/main.6a9d9ebd.css",
-    "static/js/main.a82bbfa1.js"
+    "static/js/main.e476e951.js"
   ]
 }
