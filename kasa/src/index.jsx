@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import Router from "./app/router";
 
 import "./styles/index.scss";
-import 'bear-react-carousel/dist/index.css';
+// import 'bear-react-carousel/dist/index.css';
 // import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from "@fortawesome/free-brands-svg-icons";
 // import { faStar as faStarS} from "@fortawesome/free-solid-svg-icons";
