@@ -54,6 +54,7 @@ function Logement() {
 				<Carousel loc={loc} />
 			</div>
 			<div className="content">
+
 				<div className="top">
 					<div className="title">
 						<h1>{title}</h1>
@@ -67,6 +68,7 @@ function Logement() {
 						<Rates rateNum={rating} />
 					</div>
 				</div>
+
 				<div className="textuals">
 					<Textual type="Description" text={description} />
 					<Textual type="Équipements" text={equipments} />
