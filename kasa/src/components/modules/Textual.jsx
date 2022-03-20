@@ -29,7 +29,7 @@ function Textual({ type, text }) {
 					className="chevron chevron_down"
 				/>
 			</h3>
-			{type === "Description" ? (
+			{type !== "Équipements" ? (
 				<div className="text hide">{text}</div>
 			) : (
 				<div className="text hide">
