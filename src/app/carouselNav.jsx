@@ -48,6 +48,8 @@ export function swipeOut(e, startX, startTime, setStartX, setStartTime) {
 	if (elapsedTime <= allowedTime) {
 		if (Math.abs(distX) >= threshold) {
 			swipedir = distX < 0 ? "R" : "L";
+		} else {
+			return
 		}
 	} else {
 		return
