@@ -2,11 +2,11 @@ import "../../styles/modules/spinner.scss";
 
 // preloader
 export async function cachePictures(pictures, setIsLoading) {
-    const promises = await pictures.map((url,i) => {
+    const promises = pictures.map((url,i) => {
         return new Promise((resolve, reject) => {
             const img = new Image();
             img.src = url;
-            img.addEventListener('loadend', resolve)
+            img.addEventListener('load', resolve)
             img.addEventListener('error', reject)
         });
     });

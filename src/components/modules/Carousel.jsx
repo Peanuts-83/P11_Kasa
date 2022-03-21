@@ -4,32 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState, useEffect } from "react";
 import CarouselImg from "./CarouselImg";
-
-function navCarousel(way) {
-	const crList = document.getElementsByName("radio");
-	const len = crList.length;
-	const checkedCR = [...crList].filter((cr) => cr.checked)[0];
-	const checkedNum = checkedCR.id.split("-")[1];
-
-	let resNum;
-
-	if (way === "L") {
-		if (checkedNum < 1) {
-			resNum = len - 1;
-		} else {
-			resNum = +checkedNum - 1;
-		}
-	} else {
-		if (checkedNum >= len - 1) {
-			resNum = 0;
-		} else {
-			resNum = +checkedNum + 1;
-		}
-	}
-	crList[resNum].checked = true;
-}
+import {
+	navCarousel,
+	swipeIn,
+	swipeOut,
+	swipeReset,
+} from "../../app/carouselNav";
 
 function Carousel({ loc }) {
+	// pictures loading managt
 	const pictures = loc.pictures;
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -40,6 +23,14 @@ function Carousel({ loc }) {
 	// eslint-disable-next-line no-unused-vars
 	const [imgNum, setImgNum] = useState(0);
 	let picture = imgNum === 0 ? loc.cover : pictures[imgNum];
+
+	// swipe managt
+	let [startX, setStartX] = useState(null);
+	let [startTime, setStartTime] = useState(null);
+	// function sayWho(e) {
+	// 	console.log(e.target);
+	// }
+	// document.addEventListener("click", sayWho);
 
 	return (
 		<div className="Carousel">
@@ -58,7 +49,14 @@ function Carousel({ loc }) {
 					{pictures.map((picture, i) => (
 						<CarouselImg i={i} picture={picture} key={`picture-${i}`} />
 					))}
-					<div className="chevrons">
+					<div
+						className="chevrons"
+						onTouchStart={(e) => swipeIn(e,setStartX, setStartTime)}
+						onTouchEnd={(e) =>
+							swipeOut(e,startX, startTime, setStartX, setStartTime)
+						}
+						onTouchCancel={(e) => swipeReset(e,setStartX, setStartTime)}
+					>
 						<FontAwesomeIcon
 							onClick={() => navCarousel("L")}
 							icon={solid("chevron-left")}

@@ -16,7 +16,6 @@ function Photo({ hpImg, loc, index }) {
 	// eslint-disable-next-line no-unused-vars
 	const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => console.log("ISLOADING:", isLoading), [isLoading]);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => cachePictures(pictures, setIsLoading), []);
 

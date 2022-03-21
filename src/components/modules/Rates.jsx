@@ -3,7 +3,6 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import "../../styles/modules/rates.scss";
 
 function Rates({ rateNum }) {
-	console.log("RateNum", rateNum);
 	const rates = Array(+rateNum)
 		.fill(1)
 		.concat(Array(5 - rateNum).fill(0));
