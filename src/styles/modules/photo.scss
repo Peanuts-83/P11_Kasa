@@ -17,7 +17,6 @@
 	overflow: hidden;
 	background-size: cover;
 	background-position: center;
-	// margin-bottom: 30px;
 }
 
 .photo_title {
@@ -28,8 +27,9 @@
 	top: 0;
 	left: 0;
 	font-size: 48px;
-	font-weight: 400;
+	font-weight: 500;
 	color: white;
+	z-index: 2;
 }
 
 .photo_sub_title {
@@ -39,6 +39,10 @@
 	font-size: 18px;
 	font-weight: 600;
 	color: white;
+}
+
+.loading {
+	background-color: $greym;
 }
 
 @media (max-width: 964px) {
@@ -63,7 +67,7 @@
 		border-radius: 10px;
 	}
 	.photo_title {
-		margin: 35px 0;
+		margin: 30px 0;
 		padding: 0 5%;
 		font-size: 30px;
 		line-height: 30px;

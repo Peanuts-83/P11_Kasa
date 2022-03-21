@@ -12,7 +12,7 @@ import { ProviderLogements } from "../utils/context_logements";
 function Router() {
 	return (
 		<React.StrictMode>
-			<BrowserRouter className="container">
+			<BrowserRouter className="container" basename="/P11_Kasa">
 				<ProviderLogements>
 					<div className="App">
 						<Header />
