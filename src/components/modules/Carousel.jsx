@@ -18,6 +18,7 @@ function Carousel({ loc }) {
 	const pictures = loc.pictures;
 	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => console.log("ISLOADING:", isLoading), [isLoading]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => cachePictures(pictures, setIsLoading), []);
 
 	// SWIPE managt
@@ -31,6 +32,7 @@ function Carousel({ loc }) {
 	useEffect(() => {
 		console.log("old & new checkbox:", oldNum + " / " + imgNum);
 		setOldNum(imgNum);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [imgNum]);
 
 	useEffect(() => {
