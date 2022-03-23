@@ -1,6 +1,7 @@
 import "../../styles/modules/carouselImg.scss";
 
 function CarouselImg({ i, picture }) {
+	console.log(picture)
 	return (
 		<>
 			{i === 0 ? (

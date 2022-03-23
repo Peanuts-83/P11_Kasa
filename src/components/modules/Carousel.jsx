@@ -1,5 +1,5 @@
 import "../../styles/modules/carousel.scss";
-import Spinner, { cachePictures } from "../modules/Spinner";
+import Spinner, { cachePictures } from "./Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState, useEffect } from "react";
@@ -10,27 +10,43 @@ import {
 	swipeOut,
 	swipeReset,
 } from "../../app/carouselNav";
+import { mutationNoticeAll } from "../../app/observer";
+
 
 function Carousel({ loc }) {
-	// pictures loading managt
+	// LOADING managt
 	const pictures = loc.pictures;
 	const [isLoading, setIsLoading] = useState(true);
-
 	useEffect(() => console.log("ISLOADING:", isLoading), [isLoading]);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => cachePictures(pictures, setIsLoading), []);
 
-	// eslint-disable-next-line no-unused-vars
-	const [imgNum, setImgNum] = useState(0);
-	let picture = imgNum === 0 ? loc.cover : pictures[imgNum];
-
-	// swipe managt
+	// SWIPE managt
 	let [startX, setStartX] = useState(null);
 	let [startTime, setStartTime] = useState(null);
-	// function sayWho(e) {
-	// 	console.log(e.target);
-	// }
-	// document.addEventListener("click", sayWho);
+
+	// GET old & new checked img num
+	const [imgNum, setImgNum] = useState(0);
+	const [oldNum, setOldNum] = useState(imgNum);
+
+	useEffect(() => {
+		console.log("old & new checkbox:", oldNum + " / " + imgNum);
+		setOldNum(imgNum);
+	}, [imgNum]);
+
+	useEffect(() => {
+		getCheckboxes().then((elts) => {
+			Array.from(elts).forEach((elt) => {
+				elt.addEventListener("click", (e) => {
+					setImgNum(e.target.id.split("-")[1])
+				});
+			});
+		});
+	}, [isLoading]);
+
+	async function getCheckboxes() {
+		const cbs = await mutationNoticeAll("[name='radio']");
+		return cbs;
+	}
 
 	return (
 		<div className="Carousel">
@@ -41,7 +57,7 @@ function Carousel({ loc }) {
 			) : pictures.length <= 1 ? ( // 1 photo only - no arrows
 				<div
 					className="photo"
-					style={{ backgroundImage: `url(${picture})` }}
+					style={{ backgroundImage: `url(${loc.cover})` }}
 				></div>
 			) : (
 				// > 1 photo - carousel with arrows
@@ -51,11 +67,11 @@ function Carousel({ loc }) {
 					))}
 					<div
 						className="chevrons"
-						onTouchStart={(e) => swipeIn(e,setStartX, setStartTime)}
+						onTouchStart={(e) => swipeIn(e, setStartX, setStartTime)}
 						onTouchEnd={(e) =>
-							swipeOut(e,startX, startTime, setStartX, setStartTime)
+							swipeOut(e, startX, startTime, setStartX, setStartTime)
 						}
-						onTouchCancel={(e) => swipeReset(e,setStartX, setStartTime)}
+						onTouchCancel={(e) => swipeReset(e, setStartX, setStartTime)}
 					>
 						<FontAwesomeIcon
 							onClick={() => navCarousel("L")}
