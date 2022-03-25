@@ -7,9 +7,12 @@ export const ProviderLogements = ({ children }) => {
 	function getLoc(id) {
 		return locs.filter((loc) => loc["id"] === id);
 	}
+	function getAllLocs() {
+		return locs;
+	}
 
 	return (
-		<ContextLogements.Provider value={{ locs, setLocs, getLoc }}>
+		<ContextLogements.Provider value={{ locs, setLocs, getLoc, getAllLocs }}>
 			{children}
 		</ContextLogements.Provider>
 	);

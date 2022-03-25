@@ -18,7 +18,13 @@
 .error_sub {
     margin: 5% 0;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
+}
+
+.back_link {
+    &:visited {
+        color: $red
+    }
 }
 
 
@@ -35,8 +41,15 @@
 }
 
 @media (max-width: 768px) {
+    .error_num {
+        font-size: 25vw;
+        margin-top: 15vh;
+    }
+    .error_sub {
+        font-size: 5vw;
+    }
     .back_link {
-        font-size: 12px;
+        margin: 10vh 0 10vh 0;
     }
 
 }

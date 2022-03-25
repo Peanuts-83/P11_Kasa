@@ -12,10 +12,10 @@ export function mutationNotice(selector) {
             subtree: true
         });
 
-		setTimeout(
-			() => reject((err) => console.log("Timeout! No element selected.")),
-			5000
-		);
+		// setTimeout(
+		// 	() => reject((err) => console.log("Timeout! No element selected.")),
+		// 	5000
+		// );
 	});
 }
 
@@ -37,9 +37,9 @@ export function mutationNoticeAll(selector) {
             subtree: true
         });
 
-		setTimeout(
-			() => reject((err) => console.log("Timeout! No element selected.")),
-			5000
-		);
+		// setTimeout(
+		// 	() => reject((err) => console.log("Timeout! No element selected.")),
+		// 	5000
+		// );
 	});
 }

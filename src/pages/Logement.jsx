@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ContextLogements } from "../utils/context_logements";
 
 import Tags from "../components/modules/Tags";
@@ -9,19 +9,26 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement() {
+function Logement({setId, validID}) {
+	let navigate = useNavigate();
+	const path = useLocation()
+	const myId = path.key;
+	console.log('myId', myId)
+	// setId(myId)
+
+	validID()
 	let { idPage } = useParams();
 	idPage = idPage.substring(1);
-	const { getLoc } = useContext(ContextLogements);
+	const { getLoc, getAllLocs } = useContext(ContextLogements);
 	const storedLoc = localStorage.getItem("loc");
-	let loc;
+	let loc, allIDs;
 
 	// loc -> localStorage
 	if (
 		!localStorage.getItem("loc") ||
 		localStorage.getItem("loc") === "undefined"
-	) {
-		[loc] = getLoc(idPage);
+		) {
+			[loc] = getLoc(idPage);
 		localStorage.setItem("loc", JSON.stringify(loc));
 	} else {
 		if (JSON.parse(localStorage.getItem("loc")).id === idPage) {
@@ -31,6 +38,20 @@ function Logement() {
 			localStorage.setItem("loc", JSON.stringify(loc));
 		}
 	}
+
+	// if (
+	// 	!localStorage.getItem("locs") ||
+	// 	localStorage.getItem("locs") === "undefined"
+	// ) {
+	// 	[locs] = getAllLocs();
+	// 	localStorage.setItem("locs", JSON.stringify(loc));
+	// } else {
+	// 	localStorage.getItem("locs", JSON.stringify(loc));
+
+	// }
+	// if (locs.filter(elt => elt.id === idPage).length < 1) {
+	// 	navigate('/*')
+	// }
 
 	const {
 		// eslint-disable-next-line
@@ -54,7 +75,6 @@ function Logement() {
 				<Carousel loc={loc} />
 			</div>
 			<div className="content">
-
 				<div className="top">
 					<div className="title">
 						<h1>{title}</h1>

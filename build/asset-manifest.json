@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/P11_Kasa/static/css/main.a95aeb1a.css",
-    "main.js": "/P11_Kasa/static/js/main.a184c4ad.js",
-    "static/media/fond_paysage.png": "/P11_Kasa/static/media/fond_paysage.d040f0dabda745fda3f2.png",
+    "main.css": "/P11_Kasa/static/css/main.1cd2109a.css",
+    "main.js": "/P11_Kasa/static/js/main.8dfa8e6e.js",
+    "static/media/fond_paysage.png": "/P11_Kasa/static/media/fond_paysage.a953b10ccfcb34fa0108.png",
     "static/media/fond_paysage2.png": "/P11_Kasa/static/media/fond_paysage2.fce6fc3e9ed27433e9b0.png",
     "static/media/LOGO.svg": "/P11_Kasa/static/media/LOGO.bb1c78bdbf97911cf6044e13e0c4f670.svg",
     "index.html": "/P11_Kasa/index.html",
-    "main.a95aeb1a.css.map": "/P11_Kasa/static/css/main.a95aeb1a.css.map",
-    "main.a184c4ad.js.map": "/P11_Kasa/static/js/main.a184c4ad.js.map"
+    "main.1cd2109a.css.map": "/P11_Kasa/static/css/main.1cd2109a.css.map",
+    "main.8dfa8e6e.js.map": "/P11_Kasa/static/js/main.8dfa8e6e.js.map"
   },
   "entrypoints": [
-    "static/css/main.a95aeb1a.css",
-    "static/js/main.a184c4ad.js"
+    "static/css/main.1cd2109a.css",
+    "static/js/main.8dfa8e6e.js"
   ]
 }

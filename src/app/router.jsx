@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, {useState} from "react";
+import { BrowserRouter, Route, Routes, useLocation, useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,8 +8,15 @@ import Logement from "../pages/Logement";
 import About from "../pages/About";
 import Error404 from "../pages/Error";
 import { ProviderLogements } from "../utils/context_logements";
+import logements from "../app/fetcher";
 
 function Router() {
+	const allIDs = logements.get().map(loc => loc.id)
+	// const [id, setId] = useState()
+	function validID(id) {
+		console.log(`The current id is ${!allIDs.includes(id) ? '' : 'not'}valid`)
+	}
+	console.log('IDs', allIDs)
 	return (
 		<React.StrictMode>
 			<BrowserRouter className="container" basename="/P11_Kasa">
@@ -19,7 +26,7 @@ function Router() {
 						<Routes>
 							<Route exact path="/" element={<Home />} />
 							{/* TODO: manage /logement:errorID */}
-							<Route path="/logement:idPage" element={<Logement />} />
+							<Route path="/logement:idPage" element={<Logement  validID={validID} />} />
 							<Route path="/apropos" element={<About />} />
 							<Route path="*" element={<Error404 />} />
 						</Routes>

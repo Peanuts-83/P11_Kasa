@@ -1,4 +1,4 @@
-
+@import "../styles/variables";
 
 .Footer {
     display: flex;
@@ -29,10 +29,12 @@
 
   @media (max-width:768px) {
     .Footer {
-        font-size: 10px;
+        font-size: 12px;
+        background-color: $greym;
+        padding: 10vh;
     }
     .logo_footer {
-        width: 50px;
+        width: 150px;
         margin-bottom: 15px;
     }
   }

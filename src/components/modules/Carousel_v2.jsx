@@ -10,12 +10,14 @@ import {
 	swipeOut,
 	swipeReset,
 } from "../../app/carouselNav";
-import { mutationNotice, mutationNoticeAll } from "../../app/observer";
+import { mutationNoticeAll } from "../../app/observer";
+
 
 function Carousel({ loc }) {
 	// LOADING managt
 	const pictures = loc.pictures;
 	const [isLoading, setIsLoading] = useState(true);
+	useEffect(() => console.log("ISLOADING:", isLoading), [isLoading]);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => cachePictures(pictures, setIsLoading), []);
 
@@ -23,46 +25,29 @@ function Carousel({ loc }) {
 	let [startX, setStartX] = useState(null);
 	let [startTime, setStartTime] = useState(null);
 
-	// 3 IMG array (1 hidden - 1 show - 1 hidden)
-	mutationNotice("#pict-2").then(() => getNavElements());
+	// GET old & new checked img num
+	const [imgNum, setImgNum] = useState(0);
+	const [oldNum, setOldNum] = useState(imgNum);
 
-	const arrayLen = pictures.length;
-	const positions = [];
-	const pictNum = 0;
-	let picts, container, len, lenSum;
-	// init positions
-	for (let i = -1; i < arrayLen - 1; i++) {
-		positions.push(100 * i);
-	}
-	// console.log("POS", positions);
+	useEffect(() => {
+		console.log("old & new checkbox:", oldNum + " / " + imgNum);
+		setOldNum(imgNum);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [imgNum]);
 
-	function getNavElements() {
-		[...picts] = document.querySelectorAll(".pict");
-		container = document.querySelector(".container");
-		picts.forEach((pict, i) => (pict.style.left = positions[i] + "%"));
-		// console.log(picts)
-	}
+	useEffect(() => {
+		getCheckboxes().then((elts) => {
+			Array.from(elts).forEach((elt) => {
+				elt.addEventListener("click", (e) => {
+					setImgNum(e.target.id.split("-")[1])
+				});
+			});
+		});
+	}, [isLoading]);
 
-	function navig(way) {
-		// console.log(picts)
-		if (way === "L") {
-			let imgOut = picts.shift()
-			picts.push(imgOut)
-			imgOut.style.transition = "0s";
-			imgOut.style.left = positions[arrayLen] + '%';
-			picts[1].style.transition = "1s";
-			console.log(imgOut)
-			picts.forEach((img, i) => img.style.left = positions[i] + '%')
-			// console.log(imgOut, picts)
-		} else {
-			let imgOut = picts.pop()
-			picts.unshift(imgOut)
-			imgOut.style.transition = "0s";
-			imgOut.style.left = positions[0];
-			picts[1].style.transition = "1s";
-			picts.forEach((img, i) => img.style.left = positions[i] + '%')
-			// console.log(imgOut, imgs)
-		}
+	async function getCheckboxes() {
+		const cbs = await mutationNoticeAll("[name='radio']");
+		return cbs;
 	}
 
 	return (
@@ -80,25 +65,25 @@ function Carousel({ loc }) {
 				// > 1 photo - carousel with arrows
 				<div className="container">
 					{pictures.map((picture, i) => (
-						<CarouselImg i={i} picture={picture} key={`pict-${i}`} />
+						<CarouselImg i={i} picture={picture} key={`picture-${i}`} />
 					))}
 					<div
-						className="arrows"
+						className="chevrons"
 						onTouchStart={(e) => swipeIn(e, setStartX, setStartTime)}
 						onTouchEnd={(e) =>
-							swipeOut(e, startX, startTime, setStartX, setStartTime, navig)
+							swipeOut(e, startX, startTime, setStartX, setStartTime)
 						}
 						onTouchCancel={(e) => swipeReset(e, setStartX, setStartTime)}
 					>
 						<FontAwesomeIcon
-							onClick={() => navig("L")}
+							onClick={() => navCarousel("L")}
 							icon={solid("chevron-left")}
-							className="chevron arrow arrow_left"
+							className="chevron chevron_left"
 						/>
 						<FontAwesomeIcon
-							onClick={() => navig("R")}
+							onClick={() => navCarousel("R")}
 							icon={solid("chevron-right")}
-							className="chevron arrow arrow_right"
+							className="chevron chevron_right"
 						/>
 					</div>
 				</div>
