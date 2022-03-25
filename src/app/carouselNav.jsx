@@ -10,7 +10,7 @@ const threshold = 150, //required min distance traveled to be considered swipe
 export function swipeIn(e, setStartX, setStartTime) {
 	// console.log("SWIPE TEST: ", e)
 	let touchObj = e.changedTouches[0];
-	console.log('TOUCH IN', touchObj)
+	// console.log('TOUCH IN', touchObj)
 	setStartX(touchObj.pageX);
 	setStartTime(new Date().getTime());
 	// console.log("-- SWIPE SCREEN STARTED --");
@@ -22,9 +22,11 @@ export function swipeOut(e, startX, startTime, setStartX, setStartTime, navig) {
 	let touchObj = e.changedTouches[0];
 	distX = touchObj.pageX - startX;
 	elapsedTime = new Date().getTime() - startTime;
+	// console.log('TOUCH OUT, Time:', allowedTime - elapsedTime,'Dist:', Math.abs(distX))
 	if (elapsedTime <= allowedTime) {
 		if (Math.abs(distX) >= threshold) {
 			swipedir = distX < 0 ? "R" : "L";
+			console.log('FEU', swipedir)
 		} else {
 			return
 		}
@@ -33,10 +35,10 @@ export function swipeOut(e, startX, startTime, setStartX, setStartTime, navig) {
 	}
 	navig(swipedir);
 	// console.log(`-- SWIPE SCREEN OUT - DIR: ${swipedir} --`);
-	swipeReset(e, setStartX, setStartTime);
+	swipeReset(setStartX, setStartTime);
 }
 
-export function swipeReset(e, setStartX, setStartTime) {
+export function swipeReset(setStartX, setStartTime) {
 	setStartX(null);
 	setStartTime(null);
 	// console.log("-- SWIPE SCREEN RESETED --");

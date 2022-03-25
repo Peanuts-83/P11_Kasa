@@ -24,36 +24,32 @@ function Carousel({ loc }) {
 	let [startTime, setStartTime] = useState(null);
 
 	// 3 IMG array (1 hidden - 1 show - 1 hidden)
-	mutationNotice("#pict-2").then(() => getNavElements());
+	const [picts, setPicts] = useState([])
+	mutationNotice(`#pict-${pictures.length - 1}`).then(() => getNavElements());
 
 	const arrayLen = pictures.length;
 	const positions = [];
-	const pictNum = 0;
-	let picts, container, len, lenSum;
+	let pictsRef;
 	// init positions
 	for (let i = -1; i < arrayLen - 1; i++) {
 		positions.push(100 * i);
 	}
-	// console.log("POS", positions);
 
 	function getNavElements() {
-		[...picts] = document.querySelectorAll(".pict");
-		container = document.querySelector(".container");
-		picts.forEach((pict, i) => (pict.style.left = positions[i] + "%"));
-		// console.log(picts)
+		[...pictsRef] =  document.querySelectorAll(".pict");
+		setPicts(pictsRef)
+		pictsRef.forEach((pict, i) => (pict.style.left = positions[i] + "%"));
+		console.log('PICTS', pictsRef)
 	}
 
 	function navig(way) {
-		// console.log(picts)
-		if (way === "L") {
+		if (way === "R") {
 			let imgOut = picts.shift()
 			picts.push(imgOut)
 			imgOut.style.transition = "0s";
 			imgOut.style.left = positions[arrayLen] + '%';
 			picts[1].style.transition = "1s";
-			console.log(imgOut)
 			picts.forEach((img, i) => img.style.left = positions[i] + '%')
-			// console.log(imgOut, picts)
 		} else {
 			let imgOut = picts.pop()
 			picts.unshift(imgOut)
@@ -61,7 +57,6 @@ function Carousel({ loc }) {
 			imgOut.style.left = positions[0];
 			picts[1].style.transition = "1s";
 			picts.forEach((img, i) => img.style.left = positions[i] + '%')
-			// console.log(imgOut, imgs)
 		}
 	}
 
@@ -79,16 +74,16 @@ function Carousel({ loc }) {
 			) : (
 				// > 1 photo - carousel with arrows
 				<div className="container">
-					{pictures.map((picture, i) => (
-						<CarouselImg i={i} picture={picture} key={`pict-${i}`} />
-					))}
+					{pictures.map((picture, i) => {
+						return(<CarouselImg i={i} picture={picture} key={`pict-${i}`} />)
+						})}
 					<div
 						className="arrows"
 						onTouchStart={(e) => swipeIn(e, setStartX, setStartTime)}
 						onTouchEnd={(e) =>
 							swipeOut(e, startX, startTime, setStartX, setStartTime, navig)
 						}
-						onTouchCancel={(e) => swipeReset(e, setStartX, setStartTime)}
+						onTouchCancel={() => swipeReset(setStartX, setStartTime)}
 					>
 						<FontAwesomeIcon
 							onClick={() => navig("L")}
