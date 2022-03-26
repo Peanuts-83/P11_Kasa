@@ -12,11 +12,7 @@ import logements from "../app/fetcher";
 
 function Router() {
 	const allIDs = logements.get().map(loc => loc.id)
-	// const [id, setId] = useState()
-	function validID(id) {
-		console.log(`The current id is ${!allIDs.includes(id) ? '' : 'not'}valid`)
-	}
-	console.log('IDs', allIDs)
+
 	return (
 		<React.StrictMode>
 			<BrowserRouter className="container" basename="/P11_Kasa">
@@ -24,9 +20,11 @@ function Router() {
 					<div className="App">
 						<Header />
 						<Routes>
-							<Route exact path="/" element={<Home />} />
-							{/* TODO: manage /logement:errorID */}
-							<Route path="/logement:idPage" element={<Logement  validID={validID} />} />
+							<Route path="/" element={<Home />} />
+							{allIDs.map(id => (
+								<Route path={`/logement:${id}`} element={<Logement  idPage={id} />} key={id} />
+							))}
+							{/* <Route path="/logement:id" element={<Logement />} /> */}
 							<Route path="/apropos" element={<About />} />
 							<Route path="*" element={<Error404 />} />
 						</Routes>

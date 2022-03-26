@@ -7,7 +7,8 @@ import logements from "../app/fetcher";
 
 function Home() {
 	const { locs, setLocs } = useContext(ContextLogements);
-	useEffect(() => setLocs(logements.get()));
+	useEffect(() => setLocs(logements.get(), []));
+	console.log(locs)
 
 	return (
 		<div>

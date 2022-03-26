@@ -25,7 +25,6 @@ export function swipeOut(e, startX, startTime, setStartX, setStartTime, navig) {
 	if (elapsedTime <= allowedTime) {
 		if (Math.abs(distX) >= threshold) {
 			swipedir = distX < 0 ? "R" : "L";
-			console.log('FEU', swipedir)
 		} else {
 			return
 		}

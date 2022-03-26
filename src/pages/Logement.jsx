@@ -9,15 +9,7 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement({validID}) {
-	const path = useLocation()
-	const myId = path.key;
-	console.log('myId', myId)
-
-	validID()
-	
-	let { idPage } = useParams();
-	idPage = idPage.substring(1);
+function Logement({idPage}) {
 	const { getLoc } = useContext(ContextLogements);
 	const storedLoc = localStorage.getItem("loc");
 	let loc;
