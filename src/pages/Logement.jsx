@@ -9,7 +9,7 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement({locs}) {
+function Logement() {
 	const { idPage } = useParams();
 	const { getLoc, getAllLocs } = useContext(ContextLogements);
 	const locIDs = getAllLocs().map(loc => loc.id)

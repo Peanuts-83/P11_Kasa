@@ -1,3 +1,13 @@
+# P11 - Kasa
+
+Ce projet comporte 2 branches:
+* **main**: Les fichiers de développement, en particulier le répertoire <a href="https://peanuts-83.github.io/P11_Kasa/src/">src/</a>.
+Le fichier de gestion du routage de l'application se trouve ici: <a href="https://peanuts-83.github.io/P11_Kasa/src/app/router.jsx">/src/app/router.jsx</a>
+* **gh-pages**: La version de production de l'application qui présente le site en fonctionnement.
+
+&nbsp;
+&nbsp;
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
