@@ -1,8 +1,8 @@
 # P11 - Kasa
 
 Ce projet comporte 2 branches:
-* **main**: Les fichiers de développement, en particulier le répertoire <a href="https://peanuts-83.github.io/P11_Kasa/src/">src/</a>.
-Le fichier de gestion du routage de l'application se trouve ici: <a href="https://peanuts-83.github.io/P11_Kasa/src/app/router.jsx">/src/app/router.jsx</a>
+* **main**: Les fichiers de développement, en particulier le répertoire <a href="https://github.com/Peanuts-83/P11_Kasa/src/">src/</a>.
+Le fichier de gestion du routage de l'application se trouve ici: <a href="https://github.com/Peanuts-83/P11_Kasa/src/app/router.jsx">/src/app/router.jsx</a>
 * **gh-pages**: La version de production de l'application qui présente le site en fonctionnement.
 
 &nbsp;
