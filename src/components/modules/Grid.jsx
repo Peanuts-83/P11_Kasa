@@ -6,7 +6,7 @@ function Grid({ locs }) {
 	return (
 		<div className="Grid">
 			{locs.map(loc => (
-				<Link to={`/logement:${loc.id}`} key={loc.id}>
+				<Link to={`/logement/${loc.id}`} key={loc.id}>
 					<div className="photo_grid">
 						<Photo loc={loc} />
 					</div>

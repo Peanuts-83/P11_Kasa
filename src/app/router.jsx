@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { BrowserRouter, Route, Routes, useLocation, useParams } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -21,12 +21,9 @@ function Router() {
 						<Header />
 						<Routes>
 							<Route path="/" element={<Home />} />
-							{allIDs.map(id => (
-								<Route path={`/logement:${id}`} element={<Logement  idPage={id} />} key={id} />
-							))}
-							{/* <Route path="/logement:id" element={<Logement />} /> */}
+							<Route path="/logement/:idPage" element={<Logement />} />
 							<Route path="/apropos" element={<About />} />
-							<Route path="*" element={<Error404 />} />
+							<Route path="/*" element={<Error404 />} />
 						</Routes>
 					</div>
 				</ProviderLogements>

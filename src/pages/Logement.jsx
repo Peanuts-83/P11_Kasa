@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { useParams, Navigate } from "react-router-dom";
 import { ContextLogements } from "../utils/context_logements";
 
 import Tags from "../components/modules/Tags";
@@ -9,7 +9,8 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement({idPage}) {
+function Logement() {
+	const { idPage } = useParams();
 	const { getLoc } = useContext(ContextLogements);
 	const storedLoc = localStorage.getItem("loc");
 	let loc;
@@ -20,8 +21,8 @@ function Logement({idPage}) {
 	if (
 		!localStorage.getItem("loc") ||
 		localStorage.getItem("loc") === "undefined"
-		) {
-			[loc] = getLoc(idPage);
+	) {
+		[loc] = getLoc(idPage);
 		localStorage.setItem("loc", JSON.stringify(loc));
 	} else {
 		if (JSON.parse(localStorage.getItem("loc")).id === idPage) {
@@ -30,6 +31,11 @@ function Logement({idPage}) {
 			[loc] = getLoc(idPage);
 			localStorage.setItem("loc", JSON.stringify(loc));
 		}
+	}
+
+	// WRONG ID Redirect to page 404
+	if (loc === undefined) {
+		return <Navigate to ='/*' />
 	}
 
 	const {
