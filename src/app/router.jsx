@@ -8,7 +8,6 @@ import Logement from "../pages/Logement";
 import About from "../pages/About";
 import Error404 from "../pages/Error";
 import { ProviderLogements } from "../utils/context_logements";
-import logements from "../app/fetcher";
 
 function Router() {
 

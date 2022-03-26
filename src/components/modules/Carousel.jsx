@@ -37,7 +37,8 @@ function Carousel({ loc }) {
 	function getDomElements() {
 		[...pictsRef] = document.querySelectorAll(".pict");
 		setPicts(pictsRef);
-		// SET position for each pict
+		// SET position for each pict, with last pict first in array
+		pictsRef.unshift(pictsRef.pop())
 		pictsRef.forEach((pict, i) => (pict.style.left = positions[i] + "%"));
 	}
 
