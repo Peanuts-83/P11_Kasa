@@ -1,28 +1,27 @@
-// WAY NAV Right/Left for Carousel
-
-
-
 // SWIPE SCREEN for Carousel touch screens
 let swipedir, distX, elapsedTime;
 const threshold = 150, //required min distance traveled to be considered swipe
 	allowedTime = 300; // maximum time allowed to travel that distance
 
+/**
+ * Set the startX and startTime variables to the current pageX and current time
+ */
 export function swipeIn(e, setStartX, setStartTime) {
-	// console.log("SWIPE TEST: ", e)
 	let touchObj = e.changedTouches[0];
-	// console.log('TOUCH IN', touchObj)
 	setStartX(touchObj.pageX);
 	setStartTime(new Date().getTime());
-	// console.log("-- SWIPE SCREEN STARTED --");
 }
 
+/**
+ * If the user swipes their finger left or right for more than 150 pixels in less than 300 milliseconds,
+ * then we consider it a swipe
+ * @returns Nothing.
+ */
 export function swipeOut(e, startX, startTime, setStartX, setStartTime, navig) {
-	// console.log('STARTX',startX,'STARTTIME', startTime)
 	if (!startX || !startTime) return;
 	let touchObj = e.changedTouches[0];
 	distX = touchObj.pageX - startX;
 	elapsedTime = new Date().getTime() - startTime;
-	// console.log('TOUCH OUT, Time:', allowedTime - elapsedTime,'Dist:', Math.abs(distX))
 	if (elapsedTime <= allowedTime) {
 		if (Math.abs(distX) >= threshold) {
 			swipedir = distX < 0 ? "R" : "L";
@@ -33,13 +32,15 @@ export function swipeOut(e, startX, startTime, setStartX, setStartTime, navig) {
 	} else {
 		return
 	}
+	// LAUNCH navig & REINIT startX & startTime
 	navig(swipedir);
-	// console.log(`-- SWIPE SCREEN OUT - DIR: ${swipedir} --`);
 	swipeReset(setStartX, setStartTime);
 }
 
+/**
+ * This function resets the startX and startTime variables to null
+ */
 export function swipeReset(setStartX, setStartTime) {
 	setStartX(null);
 	setStartTime(null);
-	// console.log("-- SWIPE SCREEN RESETED --");
 }

@@ -9,21 +9,22 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement({setId, validID}) {
-	let navigate = useNavigate();
+function Logement({validID}) {
 	const path = useLocation()
 	const myId = path.key;
 	console.log('myId', myId)
-	// setId(myId)
 
 	validID()
+	
 	let { idPage } = useParams();
 	idPage = idPage.substring(1);
-	const { getLoc, getAllLocs } = useContext(ContextLogements);
+	const { getLoc } = useContext(ContextLogements);
 	const storedLoc = localStorage.getItem("loc");
-	let loc, allIDs;
+	let loc;
 
-	// loc -> localStorage
+	// LOCALSTORAGE
+	/* Check if the idPage is the same as the one stored in localStorage.
+	If it's not, it will get the new data from the API and store it in localStorage. */
 	if (
 		!localStorage.getItem("loc") ||
 		localStorage.getItem("loc") === "undefined"
@@ -38,20 +39,6 @@ function Logement({setId, validID}) {
 			localStorage.setItem("loc", JSON.stringify(loc));
 		}
 	}
-
-	// if (
-	// 	!localStorage.getItem("locs") ||
-	// 	localStorage.getItem("locs") === "undefined"
-	// ) {
-	// 	[locs] = getAllLocs();
-	// 	localStorage.setItem("locs", JSON.stringify(loc));
-	// } else {
-	// 	localStorage.getItem("locs", JSON.stringify(loc));
-
-	// }
-	// if (locs.filter(elt => elt.id === idPage).length < 1) {
-	// 	navigate('/*')
-	// }
 
 	const {
 		// eslint-disable-next-line

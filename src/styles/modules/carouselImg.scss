@@ -1,6 +1,9 @@
 @import "../../styles/variables";
 
 .ci {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -9,18 +12,27 @@
 	background-position: center;
 	background-size: cover;
 	transition: 1s;
+	padding: 20px;
+	span {
+		color: white;
+		font-size: 18px;
+		font-weight: 500;
+	}
 }
 
 @media (max-width: 964px) {
-    label {
-        width: 12px;
-        height: 12px;
-    }
+	.ci {
+		span {
+			font-size: 14px;
+		}
+	}
 }
 
 @media (max-width: 768px) {
-    label {
-        width: 10px;
-        height: 10px;
-    }
+	.ci {
+
+        span {
+            display: none;
+        }
+	}
 }

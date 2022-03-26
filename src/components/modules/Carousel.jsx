@@ -4,59 +4,63 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState, useEffect } from "react";
 import CarouselImg from "./CarouselImg";
-import {
-	navCarousel,
-	swipeIn,
-	swipeOut,
-	swipeReset,
-} from "../../app/carouselNav";
-import { mutationNotice, mutationNoticeAll } from "../../app/observer";
+import { swipeIn, swipeOut, swipeReset } from "../../app/carouselNav";
+import { mutationNotice } from "../../app/observer";
 
 function Carousel({ loc }) {
-	// LOADING managt
+	////////////////////
+	// LOADING managt //
 	const pictures = loc.pictures;
 	const [isLoading, setIsLoading] = useState(true);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => cachePictures(pictures, setIsLoading), []);
 
-	// SWIPE managt
+	//////////////////
+	// SWIPE managt //
 	let [startX, setStartX] = useState(null);
 	let [startTime, setStartTime] = useState(null);
 
-	// 3 IMG array (1 hidden - 1 show - 1 hidden)
-	const [picts, setPicts] = useState([])
-	mutationNotice(`#pict-${pictures.length - 1}`).then(() => getNavElements());
-
+	/////////////////////
+	// CAROUSEL managt //
+	// WAIT FOR DOM elts to be loaded
+	mutationNotice(`#pict-${pictures.length - 1}`).then(() => getDomElements());
+	const [picts, setPicts] = useState([]);
 	const arrayLen = pictures.length;
 	const positions = [];
 	let pictsRef;
-	// init positions
+	// init positions array in width %
 	for (let i = -1; i < arrayLen - 1; i++) {
 		positions.push(100 * i);
 	}
 
-	function getNavElements() {
-		[...pictsRef] =  document.querySelectorAll(".pict");
-		setPicts(pictsRef)
+	// STORE DOM elets to State
+	function getDomElements() {
+		[...pictsRef] = document.querySelectorAll(".pict");
+		setPicts(pictsRef);
+		// SET position for each pict
 		pictsRef.forEach((pict, i) => (pict.style.left = positions[i] + "%"));
-		console.log('PICTS', pictsRef)
 	}
 
+	/**
+	 * The function navig(way) takes a string as an argument.
+	 * If the string is "R", it will shift the array of pictures to the right.
+	 * If the string is "L", it will shift the array of pictures to the left.
+	 */
 	function navig(way) {
 		if (way === "R") {
-			let imgOut = picts.shift()
-			picts.push(imgOut)
+			let imgOut = picts.shift();
+			picts.push(imgOut);
 			imgOut.style.transition = "0s";
-			imgOut.style.left = positions[arrayLen] + '%';
+			imgOut.style.left = positions[arrayLen] + "%";
 			picts[1].style.transition = "1s";
-			picts.forEach((img, i) => img.style.left = positions[i] + '%')
+			picts.forEach((img, i) => (img.style.left = positions[i] + "%"));
 		} else {
-			let imgOut = picts.pop()
-			picts.unshift(imgOut)
+			let imgOut = picts.pop();
+			picts.unshift(imgOut);
 			imgOut.style.transition = "0s";
 			imgOut.style.left = positions[0];
 			picts[1].style.transition = "1s";
-			picts.forEach((img, i) => img.style.left = positions[i] + '%')
+			picts.forEach((img, i) => (img.style.left = positions[i] + "%"));
 		}
 	}
 
@@ -74,9 +78,9 @@ function Carousel({ loc }) {
 			) : (
 				// > 1 photo - carousel with arrows
 				<div className="container">
-					{pictures.map((picture, i) => {
-						return(<CarouselImg i={i} picture={picture} key={`pict-${i}`} />)
-						})}
+					{pictures.map((picture, i, array) => {
+						return <CarouselImg i={i} len={array.length} picture={picture} key={`pict-${i}`} />;
+					})}
 					<div
 						className="arrows"
 						onTouchStart={(e) => swipeIn(e, setStartX, setStartTime)}

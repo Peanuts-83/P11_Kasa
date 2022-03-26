@@ -1,6 +1,9 @@
 import "../../styles/modules/spinner.scss";
 
-// preloader
+// PRELOADER
+/**
+ * It takes an array of urls and returns a promise that resolves when all the images have loaded.
+ */
 export async function cachePictures(pictures, setIsLoading) {
     const promises = pictures.map((url,i) => {
         return new Promise((resolve, reject) => {

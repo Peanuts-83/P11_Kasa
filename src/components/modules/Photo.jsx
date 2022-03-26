@@ -4,7 +4,7 @@ import paysage from "../../assets/fond_paysage.png";
 import paysage2 from "../../assets/fond_paysage2.png";
 import { useState, useEffect } from "react";
 
-function Photo({ hpImg, loc, index }) {
+function Photo({ hpImg, loc }) {
 	const paysages = [paysage, paysage2];
 	const choosePaysage = Math.floor(Math.random() * 2);
 	let pictures = [];

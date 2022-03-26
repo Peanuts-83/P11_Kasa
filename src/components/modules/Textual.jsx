@@ -1,5 +1,4 @@
 import "../../styles/modules/textual.scss";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
@@ -9,6 +8,7 @@ function switchText(type) {
 		(elt) => elt.querySelector("h3").innerText === type
 	)[0];
 	const text = textual.querySelector(".text");
+
 	// eslint-disable-next-line no-unused-expressions
 	textual.classList.contains("hide")
 		? (textual.classList.remove("hide"), text.classList.remove("hide"))
