@@ -7,12 +7,13 @@ export const ProviderLogements = ({ children }) => {
 	function getLoc(id) {
 		return locs.filter((loc) => loc["id"] === id);
 	}
-	function getAllLocs() {
-		return locs;
+	function getIDs() {
+		console.log('IDS', locs.map(loc => loc.id))
+		return locs.map(loc => loc.id);
 	}
 
 	return (
-		<ContextLogements.Provider value={{ locs, setLocs, getLoc, getAllLocs }}>
+		<ContextLogements.Provider value={{ locs, setLocs, getLoc, getIDs }}>
 			{children}
 		</ContextLogements.Provider>
 	);

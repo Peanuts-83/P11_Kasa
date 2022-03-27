@@ -8,10 +8,10 @@ import Logement from "../pages/Logement";
 import About from "../pages/About";
 import Error404 from "../pages/Error";
 import { ProviderLogements } from "../utils/context_logements";
-import fetcher from "../app/fetcher";
+import fetcher from "../app/fetcher"
 
 function Router() {
-	const allIDs = fetcher.get().map((loc) => loc.id);
+	const allIDs = fetcher.get().map(loc => loc.id)
 
 	return (
 		<React.StrictMode>
@@ -20,14 +20,8 @@ function Router() {
 					<div className="App">
 						<Header />
 						<Routes>
-							<Route index element={<Home />} />
-							{allIDs.map((idPage, i) => (
-								<Route
-									path={`/logement/${idPage}`}
-									element={<Logement idPage={idPage} />}
-									key={`loc-${i}`}
-								/>
-							))}
+							<Route path="/" element={<Home />} />
+							<Route path="/logement/:idPage" element={<Logement />} />
 							<Route path="/apropos" element={<About />} />
 							<Route path="*" element={<Error404 />} />
 						</Routes>

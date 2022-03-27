@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { ContextLogements } from "../utils/context_logements";
 
@@ -9,13 +9,13 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement({idPage}) {
-	const { getLoc, getAllLocs } = useContext(ContextLogements);
-	const locIDs = getAllLocs().map((loc) => loc.id);
+function Logement() {
+	const { idPage } = useParams();
+	const { getLoc, getIDs } = useContext(ContextLogements);
+	// const locIDs = getAllLocs().map((loc) => loc.id)
+	const storedLocIDs = localStorage.getItem("locIDs");
 	const storedLoc = localStorage.getItem("loc");
-	let loc;
-
-	console.log('IDPAGE', idPage)
+	let loc, locIDs;
 
 	// LOCALSTORAGE
 	/* Check if the idPage is the same as the one stored in localStorage.
@@ -34,10 +34,21 @@ function Logement({idPage}) {
 			localStorage.setItem("loc", JSON.stringify(loc));
 		}
 	}
+	if (
+		!localStorage.getItem("locIDs") ||
+		localStorage.getItem("locIDs") === "undefined" ||
+		localStorage.getItem('locIDs') === []
+	) {
+		locIDs = getIDs();
+		localStorage.setItem("locIDs", JSON.stringify(locIDs));
+	} else {
+		locIDs = JSON.parse(storedLocIDs);
+	}
+	// console.log("IDPAGE", idPage, "LOCIDS", locIDs);
 
 	// WRONG ID Redirect to page 404
 	if (loc === undefined || !locIDs.includes(idPage)) {
-		// return <Navigate to="/*" />;
+		return <Navigate to="/error" />;
 	}
 
 	const {
