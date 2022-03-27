@@ -7,7 +7,6 @@ import Owner from "../components/modules/Owner";
 import Rates from "../components/modules/Rates";
 import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
-import "../styles/logement.scss";
 
 function Logement() {
 	const { idPage } = useParams();

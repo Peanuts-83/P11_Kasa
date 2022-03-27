@@ -1,4 +1,3 @@
-import "../../styles/modules/grid.scss";
 import Photo from "./Photo";
 import { Link } from "react-router-dom";
 

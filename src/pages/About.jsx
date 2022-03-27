@@ -1,4 +1,3 @@
-import "../styles/about.scss"
 import Photo from "../components/modules/Photo";
 import Textuals from "../components/modules/Textual"
 

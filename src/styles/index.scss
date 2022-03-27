@@ -1,5 +1,19 @@
-@import "../styles/normalize.css";
+@import "../styles/normalize";
 @import "../styles/variables";
+@import "../styles/about";
+@import "../styles/error";
+@import "../styles/footer";
+@import "../styles/header";
+@import "../styles/logement";
+@import "../styles/modules/carousel";
+@import "../styles/modules/carouselImg";
+@import "../styles/modules/grid";
+@import "../styles/modules/owner";
+@import "../styles/modules/photo";
+@import "../styles/modules/rates";
+@import "../styles/modules/spinner";
+@import "../styles/modules/tags";
+@import "../styles/modules/textual";
 
 *,
 *::before,
@@ -9,7 +23,7 @@
 
 body {
   margin: 0;
-  font-family: $Montserrat, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+  font-family: Montserrat, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;

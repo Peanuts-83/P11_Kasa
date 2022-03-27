@@ -1,4 +1,3 @@
-import "../../styles/modules/photo.scss";
 import Spinner, { cachePictures } from "./Spinner";
 import paysage from "../../assets/fond_paysage.png";
 import paysage2 from "../../assets/fond_paysage2.png";

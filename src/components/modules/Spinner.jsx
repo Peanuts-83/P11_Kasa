@@ -1,4 +1,3 @@
-import "../../styles/modules/spinner.scss";
 
 // PRELOADER
 /**

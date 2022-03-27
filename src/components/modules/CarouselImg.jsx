@@ -1,4 +1,3 @@
-import "../../styles/modules/carouselImg.scss";
 
 function CarouselImg({ i, len, picture }) {
 	return (

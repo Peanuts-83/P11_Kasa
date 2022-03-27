@@ -1,4 +1,3 @@
-import "../../styles/modules/tags.scss"
 
 function Tags({ tags }) {
 	return (

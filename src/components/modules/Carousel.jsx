@@ -1,4 +1,3 @@
-import "../../styles/modules/carousel.scss";
 import Spinner, { cachePictures } from "./Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";

@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import "../../styles/modules/rates.scss";
 
 function Rates({ rateNum }) {
 	const rates = Array(+rateNum)

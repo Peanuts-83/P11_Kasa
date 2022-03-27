@@ -1,4 +1,3 @@
-import "../../styles/modules/owner.scss";
 
 function Owner({ host }) {
 	const { name, picture } = host;
