@@ -11,7 +11,7 @@ import { ProviderLogements } from "../utils/context_logements";
 import fetcher from "../app/fetcher"
 
 function Router() {
-	const allIDs = fetcher.get().map(loc => loc.id)
+	// const allIDs = fetcher.get().map(loc => loc.id)
 
 	return (
 		<React.StrictMode>

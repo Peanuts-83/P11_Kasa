@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/P11_Kasa/static/css/main.7aadb0fd.css",
-    "main.js": "/P11_Kasa/static/js/main.8dd3acb4.js",
+    "main.js": "/P11_Kasa/static/js/main.fb79f718.js",
     "static/media/fond_paysage.png": "/P11_Kasa/static/media/fond_paysage.a953b10ccfcb34fa0108.png",
     "static/media/fond_paysage2.png": "/P11_Kasa/static/media/fond_paysage2.fce6fc3e9ed27433e9b0.png",
     "static/media/LOGO.svg": "/P11_Kasa/static/media/LOGO.bb1c78bdbf97911cf6044e13e0c4f670.svg",
     "index.html": "/P11_Kasa/index.html",
     "main.7aadb0fd.css.map": "/P11_Kasa/static/css/main.7aadb0fd.css.map",
-    "main.8dd3acb4.js.map": "/P11_Kasa/static/js/main.8dd3acb4.js.map"
+    "main.fb79f718.js.map": "/P11_Kasa/static/js/main.fb79f718.js.map"
   },
   "entrypoints": [
     "static/css/main.7aadb0fd.css",
-    "static/js/main.8dd3acb4.js"
+    "static/js/main.fb79f718.js"
   ]
 }

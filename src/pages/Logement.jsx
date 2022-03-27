@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { ContextLogements } from "../utils/context_logements";
 
@@ -12,7 +12,6 @@ import "../styles/logement.scss";
 function Logement() {
 	const { idPage } = useParams();
 	const { getLoc, getIDs } = useContext(ContextLogements);
-	// const locIDs = getAllLocs().map((loc) => loc.id)
 	const storedLocIDs = localStorage.getItem("locIDs");
 	const storedLoc = localStorage.getItem("loc");
 	let loc, locIDs;
@@ -48,6 +47,7 @@ function Logement() {
 
 	// WRONG ID Redirect to page 404
 	if (loc === undefined || !locIDs.includes(idPage)) {
+		// console.log('NAVIGATE to ERROR')
 		return <Navigate to="/error" />;
 	}
 

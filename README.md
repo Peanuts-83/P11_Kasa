@@ -6,6 +6,13 @@ Le fichier de gestion du routage de l'application se trouve ici: <a href="https:
 * **gh-pages**: La version de production de l'application qui présente le site en fonctionnement.
 
 &nbsp;
+L'application ne doit pas déclencher d'erreur. Toutefois, le paramétrage du serveur GitHub Pages fait que l'URL est évaluée coté serveur, ce qui déclenche une erreur au reload de la page logement (l'id du logement entrée en paramètre étant dynamique). Une astuce au déploiement permet de contourner ce problème ( clonage de *index.html* en *404.html* ).
+
+ Malgrès cette alerte éronée, l'application fonctionne correctement et une mise en production sur un serveur professionnel sur lequel l'équipe technique aura la main ne produira plus cette erreur.
+
+&nbsp;
+Le sujet est traité ici : <a href="https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages">https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages</a>
+
 &nbsp;
 
 # Getting Started with Create React App
