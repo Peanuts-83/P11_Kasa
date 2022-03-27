@@ -8,7 +8,7 @@ import Logement from "../pages/Logement";
 import About from "../pages/About";
 import Error404 from "../pages/Error";
 import { ProviderLogements } from "../utils/context_logements";
-import fetcher from "../app/fetcher"
+// import fetcher from "../app/fetcher"
 
 function Router() {
 	// const allIDs = fetcher.get().map(loc => loc.id)
