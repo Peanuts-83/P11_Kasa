@@ -9,12 +9,13 @@ import Textual from "../components/modules/Textual";
 import Carousel from "../components/modules/Carousel";
 import "../styles/logement.scss";
 
-function Logement() {
-	const { idPage } = useParams();
+function Logement({idPage}) {
 	const { getLoc, getAllLocs } = useContext(ContextLogements);
-	const locIDs = getAllLocs().map(loc => loc.id)
+	const locIDs = getAllLocs().map((loc) => loc.id);
 	const storedLoc = localStorage.getItem("loc");
 	let loc;
+
+	console.log('IDPAGE', idPage)
 
 	// LOCALSTORAGE
 	/* Check if the idPage is the same as the one stored in localStorage.
@@ -36,7 +37,7 @@ function Logement() {
 
 	// WRONG ID Redirect to page 404
 	if (loc === undefined || !locIDs.includes(idPage)) {
-		return <Navigate to ='/*' />
+		// return <Navigate to="/*" />;
 	}
 
 	const {
