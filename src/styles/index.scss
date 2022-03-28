@@ -18,45 +18,58 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+	height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: Montserrat, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+	margin: 0;
+	font-family: Montserrat, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+		"Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-
-.Link {
-  color: $red;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+#root {
+  width: 100%;
 }
-
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: auto;
-  // border: 1px dashed blueviolet;
-  margin: 0 auto;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.content {
   padding: 0 60px;
+  width: 100%;
   max-width: 1520px;
 }
 
+.Link {
+	color: $red;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 @media (max-width: 964px) {
-  .App {
-    padding: 0 40px;
-  }
+	.content {
+		padding: 0 40px;
+	}
 }
 
 @media (max-width: 768px) {
-  .App {
-    padding: 0 5%;
-  }
+	.content {
+		padding: 0 5%;
+	}
 }

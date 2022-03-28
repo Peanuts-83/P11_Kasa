@@ -2,8 +2,10 @@
 
 .About {
     display: flex;
+    // height: 100%;
+    // flex: 1;
     flex-direction: column;
-    margin-bottom: 60px;
+    // margin-bottom: auto;
     .photo_title {
         display: none;
     }

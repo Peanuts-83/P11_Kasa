@@ -18,16 +18,18 @@ function Router() {
 			<BrowserRouter className="container" basename="/P11_Kasa">
 				<ProviderLogements>
 					<div className="App">
-						<Header />
-						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/logement/:idPage" element={<Logement />} />
-							<Route path="/apropos" element={<About />} />
-							<Route path="*" element={<Error404 />} />
-						</Routes>
+						<div className="content">
+							<Header />
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route path="/logement/:idPage" element={<Logement />} />
+								<Route path="/apropos" element={<About />} />
+								<Route path="*" element={<Error404 />} />
+							</Routes>
+						</div>
+						<Footer />
 					</div>
 				</ProviderLogements>
-				<Footer className="footer" />
 			</BrowserRouter>
 		</React.StrictMode>
 	);
