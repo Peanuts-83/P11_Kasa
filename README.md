@@ -1,19 +1,38 @@
-# P11 - Kasa
+[![forthebadge](./uses-react.svg)](https://fr.reactjs.org/)
+[![forthebadge](./uses-react-router-v6.svg)](https://reactrouter.com/)
 
-Ce projet comporte 2 branches:
-* **main**: Les fichiers de développement, en particulier le répertoire <a href="https://github.com/Peanuts-83/P11_Kasa/tree/main/src">src/</a>.
-Le fichier de gestion du routage de l'application se trouve ici: <a href="https://github.com/Peanuts-83/P11_Kasa/tree/main/src/app/router.jsx">/src/app/router.jsx</a>
-* **gh-pages**: La version de production de l'application qui présente le site en fonctionnement.
+# P11: React & ReactRouter / Kasa website
 
-&nbsp;
-L'application ne doit pas déclencher d'erreur. Toutefois, le paramétrage du serveur GitHub Pages fait que l'URL est évaluée coté serveur, ce qui déclenche une erreur au reload de la page logement (l'id du logement entrée en paramètre étant dynamique). Une astuce au déploiement permet de contourner ce problème ( clonage de *index.html* en *404.html* ).
+[![Project site](./hp.png)](https://peanuts-83.github.io/P11_Kasa/)
+[![Flowchart](./vignette_algo.png)](./algo.png) - Flowchart
+[![Presentation slideShow](./pdf.png)](./Slide_P11.pdf) - SlideShow
 
- Malgrès cette alerte éronée, l'application fonctionne correctement et une mise en production sur un serveur professionnel sur lequel l'équipe technique aura la main ne produira plus cette erreur.
 
-&nbsp;
-Le sujet est traité ici : <a href="https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages">https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages</a>
+## Routing - v6
 
-&nbsp;
+**BrowerRouter** use with basename parameter. **Routes / Route** components designed to serve proper URL & **Error 404** page manages wrong routes instantly.
+
+## Asynchronous
+
+API calls simulation, **loader spinner** implemented to manage loading images, **components optimisation** for reusability.
+
+## UI/UX
+
+Vanilla javascript **Carousel** self-implemented with infinite loop capabilities.
+
+## Branches
+
+* **main**: Development files [./src](./src/).
+Specific dedicated **router file** : [./src/app/router.jsx](./src/app/router.jsx)
+* **gh-pages**: **Production files** displaying the website.
+
+
+The application should not throw an error. However, the setting of the GitHub Pages server means that the URL is evaluated on the server side, which triggers an error when reloading the housing page (the housing id entered in parameter being dynamic). A deployment trick allows us to work around this problem ( cloning of *index.html* into *404.html* ).
+
+Despite this erroneous alert, the application works correctly and a production release on a professional server on which the technical team will have control will no longer produce this error.
+
+More informations here : [https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages](https://stackoverflow.com/questions/46056414/getting-404-for-links-with-create-react-app-deployed-to-github-pages)
+
 
 # Getting Started with Create React App
 
