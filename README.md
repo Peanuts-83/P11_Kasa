@@ -4,6 +4,7 @@
 # P11: React & ReactRouter / Kasa website
 
 [![Project site](./hp.png)](https://peanuts-83.github.io/P11_Kasa/)
+
 [![Flowchart](./vignette_algo.png)](./algo.png) - Flowchart
 [![Presentation slideShow](./pdf.png)](./Slide_P11.pdf) - SlideShow
 
