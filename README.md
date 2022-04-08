@@ -8,6 +8,11 @@
 [![Flowchart](./vignette_algo.png)](./algo.png) - Flowchart
 [![Presentation slideShow](./pdf.png)](./Slide_P11.pdf) - SlideShow
 
+## Project's presentation
+
+Kasa has been in the business of renting apartments between individuals for almost 10 years now. With more than 500 ads posted every day, Kasa is one of the leaders in private apartment rentals in France.
+
+The Kasa site was coded more than 10 years ago in ASP.NET with significant legacy code, and we are asked to build a new version with **React & React-Router**.
 
 ## Routing - v6
 
